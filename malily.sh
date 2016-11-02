@@ -20,6 +20,7 @@ generator=$(cat /dev/random | tr -dc "[:alpha:]" | head -c 8)
 echo "Randomly generated string: $generator"
 
 datestamp=$(TZ=":US/Eastern" date +%m_%d_%Y)
+
 echo "Today's date: $datestamp"
 
-echo "$name,$hometown,$siblings,$age,$movie,$generator,$datestamp" > final.csv
+echo "$name,$hometown,$siblings,$age,$movie,$generator,$datestamp" >> final.csv
