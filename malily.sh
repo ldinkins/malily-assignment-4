@@ -24,3 +24,29 @@ datestamp=$(TZ=":US/Eastern" date +%m_%d_%Y)
 echo "Today's date: $datestamp"
 
 echo "$name,$hometown,$siblings,$age,$movie,$generator,$datestamp" >> final.csv
+
+###### Bonus: M ######
+pretty_print() {
+IFS=","
+    while read name hometown siblings age movie generator datestamp
+        do
+            echo -e "\n\033[1m$name \e[0m\
+            \n*************\
+            \nHometown: $hometown\
+            \nNumber of Siblings: $siblings\
+            \nAge: $age\
+            \nFavorite Movie: $movie\
+            \nIdentifier: $generator\
+            \nDate: $datestamp\n"
+        done < final.csv
+}
+
+echo "Would you like to print this CSV to the screen? Y/N"
+read print2screen
+
+if [ $print2screen == "Y" ]; then
+pretty_print
+else
+echo "Okay, bye."
+fi
+###### ######
