@@ -7,7 +7,7 @@ GREY='\033[1;30m'
 NC='\033[0m' # No Color
 
 
-echo -e " ${CYAN}What's your first name:${NC} "
+echo -e "${CYAN}What's your first name:${NC} "
 read name
 
 echo -e "${CYAN}Where did you grow up:${NC} "
