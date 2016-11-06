@@ -32,7 +32,7 @@ echo -e "Today's date: ${RED}$datestamp${NC} "
 
 echo "$name,$hometown,$siblings,$age,$movie,$generator,$datestamp" >> final.csv
 
-###### Bonus: M ######
+###### Bonus: ######
 pretty_print() {
 IFS=","
     while read name hometown siblings age movie generator datestamp
