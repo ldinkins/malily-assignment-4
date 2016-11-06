@@ -1,27 +1,34 @@
 #!/bin/bash
 
-echo "What's your first name: "
+RED='\033[0;31m'
+CYAN='\033[0;36m'
+GREEN='\033[0;32m'
+GREY='\033[1;30m'
+NC='\033[0m' # No Color
+
+
+echo -e " ${CYAN}What's your first name:${NC} "
 read name
 
-echo "Where did you grow up: "
+echo -e "${CYAN}Where did you grow up:${NC} "
 read hometown
 
-echo "How many siblings do you have: "
+echo -e "${CYAN}How many siblings do you have:${NC} "
 read siblings
 
-echo "How old are you: "
+echo -e "${CYAN}How old are you:${NC} "
 read age
 
-echo "What's your favorite movie: "
+echo -e "${CYAN}What's your favorite movie:${NC} "
 read movie
 
 #generate random strings
 generator=$(cat /dev/random | tr -dc "[:alpha:]" | head -c 8)
-echo "Randomly generated string: $generator"
+echo -e "Randomly generated string: ${RED}$generator${NC}"
 
 datestamp=$(TZ=":US/Eastern" date +%m_%d_%Y)
 
-echo "Today's date: $datestamp"
+echo -e "Today's date: ${RED}$datestamp${NC} "
 
 echo "$name,$hometown,$siblings,$age,$movie,$generator,$datestamp" >> final.csv
 
@@ -30,23 +37,23 @@ pretty_print() {
 IFS=","
     while read name hometown siblings age movie generator datestamp
         do
-            echo -e "\n\033[1m$name \e[0m\
+            echo -e "${GREEN}\n\033[1m$name \e[0m${NC}\
             \n*************\
-            \nHometown: $hometown\
-            \nNumber of Siblings: $siblings\
-            \nAge: $age\
-            \nFavorite Movie: $movie\
-            \nIdentifier: $generator\
-            \nDate: $datestamp\n"
+            \n${GREY}Hometown: $hometown${NC}\
+            \n${GREY}Number of Siblings: $siblings${NC}\
+            \n${GREY}Age: $age${NC}\
+            \n${GREY}Favorite Movie: $movie${NC}\
+            \n${GREY}Identifier: $generator${NC}\
+            \n${GREY}Date: $datestamp${NC}\n"
         done < final.csv
 }
 
-echo "Would you like to print this CSV to the screen? Y/N"
+echo -e "Would you like to print this CSV to the screen? ${RED}Y/N${NC}"
 read print2screen
 
 if [ $print2screen == "Y" ]; then
 pretty_print
 else
-echo "Okay, bye."
+echo -e ${GREEN}"Okay, bye.${NC}"
 fi
 ###### ######
