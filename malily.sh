@@ -39,12 +39,12 @@ IFS=","
         do
             echo -e "${GREEN}\n\033[1m$name \e[0m${NC}\
             \n*************\
-            \n${GREY}Hometown: $hometown${NC}\
-            \n${GREY}Number of Siblings: $siblings${NC}\
-            \n${GREY}Age: $age${NC}\
-            \n${GREY}Favorite Movie: $movie${NC}\
-            \n${GREY}Identifier: $generator${NC}\
-            \n${GREY}Date: $datestamp${NC}\n"
+            \n${GREY}Hometown: ${GREEN}$hometown${NC}\
+            \n${GREY}Number of Siblings: ${GREEN}$siblings${NC}\
+            \n${GREY}Age: ${GREEN}$age${NC}\
+            \n${GREY}Favorite Movie: ${GREEN}$movie${NC}\
+            \n${GREY}Identifier: ${GREEN}$generator${NC}\
+            \n${GREY}Date: ${GREEN}$datestamp${NC}\n"
         done < final.csv
 }
 
